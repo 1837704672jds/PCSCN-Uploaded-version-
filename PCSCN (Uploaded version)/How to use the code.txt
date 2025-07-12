@@ -1,0 +1,40 @@
+The original copyright of this research belongs to the author. Please do not engage in any infringement！
+
+Python Version: 3.7.16
+PyTorch Version: 1.7.1
+CUDA Version: 11.0
+
+Please extract the "Dataset" directory before use
+
+The Dataset A quote from  https://ieeexplore.ieee.org/abstract/document/10384868  and  https://doi.org/10.1155/2021/7565398
+
+File Descriptions
+1_Data_set_construction.py
+Constructs Dataset A and extracts features, saving them in the folder "PCSCN_Training_Data" under the "Array" directory.
+
+2_Quality_assessment_model.py
+Loads the locally saved feature data, trains the PCSCN model, and saves the trained model in the "Model" folder.
+
+3_Data_cleaning.py
+Uses PCSCN to clean Dataset B. For comparison, the data is also subjected to denoising and left untreated. The processed data is saved in the "1_Data_Cleaning", "2_Denoising", and "3_Do_Nothing" folders under the "Array" directory, representing the three different processing methods.
+
+4_Heart_sound_classification_model.py
+Trains publicly available models to verify which data processing method is the most effective.
+
+NN.py
+Contains the code for the PCSCN model as well as the code for five publicly available models.
+Folder Descriptions
+
+Folder "Array"
+Stores the processed data locally so that it can be loaded for model training without the need for reprocessing each time. The folder requires a significant amount of local storage space (50GB). 
+
+Folder "Dataset"
+Contains the datasets. Dataset A and Dataset B (Dataset B is not provided due to privacy agreements and should be replaced with your own data).
+
+Folder "Model"
+Used to save the trained PCSCN models.
+
+PS: It is recommended that readers fold all the contents in "if(0)" when reading the code for the first time. This indicates that it is a code block that implements a specific function. This helps readers understand the macroscopic structure of the code
+
+"1_Data_set_construction.py" and "2_Quality_assessment_model.py" correspond to the original process 1, that is, the training process of PCSCN
+"3_Data_cleaning.py" and "4_Heart_sound_classification_model.py" correspond to Process 2 of the original text, namely the control experiment
